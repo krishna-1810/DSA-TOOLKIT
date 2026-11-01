@@ -8,23 +8,21 @@
 #include "include/Searching.h"
 using namespace std;
 
-// Number input safely leta hai (galat input aaye to crash nahi hoga)
 int readInt(const char* prompt) {
     int x;
     cout << prompt;
     while (!(cin >> x)) {
         cin.clear();
         cin.ignore(10000, '\n');
-        cout << "Invalid input. Number daalo: ";
+        cout << "Invalid input. Enter a number: ";
     }
     return x;
 }
 
-// User se array leta hai
 int* readArray(int& n) {
-    n = readInt("Kitne elements? ");
+    n = readInt("Number of elements: ");
     if (n <= 0) {
-        cout << "Size 1 ya usse zyada hona chahiye." << endl;
+        cout << "Size must be at least 1." << endl;
         return nullptr;
     }
     int* arr = new int[n];
@@ -34,7 +32,6 @@ int* readArray(int& n) {
     return arr;
 }
 
-// ---------------- Linked List ----------------
 void linkedListMenu() {
     LinkedList list;
     int choice;
@@ -59,7 +56,6 @@ void linkedListMenu() {
     } while (choice != 0);
 }
 
-// ---------------- Stack ----------------
 void stackMenu() {
     Stack s;
     int choice, val;
@@ -82,7 +78,6 @@ void stackMenu() {
     } while (choice != 0);
 }
 
-// ---------------- Queue ----------------
 void queueMenu() {
     Queue q;
     int choice, val;
@@ -105,12 +100,11 @@ void queueMenu() {
     } while (choice != 0);
 }
 
-// ---------------- Priority Queue ----------------
 void priorityQueueMenu() {
     PriorityQueue pq;
     int choice, val;
     do {
-        cout << "\n--- Priority Queue (bada number = zyada priority) ---\n"
+        cout << "\n--- Priority Queue (larger number = higher priority) ---\n"
              << "1. Insert\n2. Extract highest\n3. Peek\n4. Display\n0. Back\n";
         choice = readInt("Choice: ");
 
@@ -128,7 +122,6 @@ void priorityQueueMenu() {
     } while (choice != 0);
 }
 
-// ---------------- Hash Table ----------------
 void hashTableMenu() {
     HashTable ht(7);
     int choice, key, val;
@@ -157,7 +150,6 @@ void hashTableMenu() {
     } while (choice != 0);
 }
 
-// ---------------- Sorting ----------------
 void sortingMenu() {
     cout << "\n--- Sorting ---" << endl;
     int n;
@@ -182,7 +174,6 @@ void sortingMenu() {
     delete[] arr;
 }
 
-// ---------------- Searching ----------------
 void searchingMenu() {
     cout << "\n--- Searching ---" << endl;
     int n;
@@ -194,14 +185,14 @@ void searchingMenu() {
     int target, index;
 
     if (choice == 1) {
-        target = readInt("Search karna hai: ");
+        target = readInt("Element to search: ");
         index = linearSearch(arr, n, target);
     }
     else if (choice == 2) {
-        mergeSort(arr, 0, n - 1);   // Binary search ke liye sorted zaroori hai
-        cout << "Array sort kar diya: ";
+        mergeSort(arr, 0, n - 1);
+        cout << "Array sorted: ";
         printArray(arr, n);
-        target = readInt("Search karna hai: ");
+        target = readInt("Element to search: ");
         index = binarySearch(arr, n, target);
     }
     else {
@@ -210,12 +201,11 @@ void searchingMenu() {
         return;
     }
 
-    if (index == -1) cout << "Element nahi mila." << endl;
-    else cout << "Element index " << index << " pe mila." << endl;
+    if (index == -1) cout << "Element not found." << endl;
+    else cout << "Element found at index " << index << "." << endl;
     delete[] arr;
 }
 
-// ---------------- Main Menu ----------------
 int main() {
     int choice;
     do {
