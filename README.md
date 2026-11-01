@@ -11,9 +11,3 @@ A custom Data Structures and Algorithms library in C++, built from scratch witho
 - Sorting: Bubble, Selection, Merge, Quick
 - Searching: Linear, Binary
 
-## How to Run
-```
-g++ main.cpp -o main
-./main
-```
-(On Windows, run `main.exe`.)
