@@ -9,7 +9,6 @@ private:
     int size;
     int capacity;
 
-    // Array full ho jaye to double size ka naya array banata hai
     void resize() {
         capacity *= 2;
         int* newArr = new int[capacity];
@@ -23,8 +22,6 @@ private:
         a = b;
         b = temp;
     }
-
-    // Naya element neeche add hua hai, usko upar tak chadhao
     void heapifyUp(int i) {
         while (i > 0) {
             int parent = (i - 1) / 2;
@@ -37,7 +34,6 @@ private:
         }
     }
 
-    // Root hata ke last element upar rakha hai, usko neeche tak utaro
     void heapifyDown(int i) {
         while (true) {
             int left = 2 * i + 1;
@@ -76,14 +72,12 @@ public:
         size++;
     }
 
-    // Sabse zyada priority wala dekhna (hatana nahi)
     bool peek(int& value) const {
         if (isEmpty()) return false;
         value = arr[0];
         return true;
     }
 
-    // Sabse zyada priority wala nikalna
     bool extractMax(int& value) {
         if (isEmpty()) return false;
         value = arr[0];
@@ -93,17 +87,16 @@ public:
         return true;
     }
 
-    // Heap ka array jaisa hai waisa dikhata hai
     void display() const {
         if (isEmpty()) {
-            std::cout << "Priority Queue is empty" << std::endl;
+            cout << "Priority Queue is empty" << endl;
             return;
         }
-        std::cout << "Heap array: ";
+        cout << "Heap array: ";
         for (int i = 0; i < size; i++) {
-            std::cout << arr[i] << " ";
+           cout << arr[i] << " ";
         }
-        std::cout << std::endl;
+    cout << endl;
     }
 };
 
