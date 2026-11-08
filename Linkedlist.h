@@ -2,7 +2,7 @@
 #define LINKEDLIST_H
 
 #include <iostream>
-
+using namespace std;
 struct Node {
     int data;
     Node* next;
@@ -15,12 +15,8 @@ private:
 
 public:
     LinkedList() : head(nullptr) {}
-
-    // Prevent accidental copying (it would cause double-delete bugs)
     LinkedList(const LinkedList&) = delete;
     LinkedList& operator=(const LinkedList&) = delete;
-
-    // Destructor: frees all nodes when the list is destroyed
     ~LinkedList() {
         while (head != nullptr) {
             Node* temp = head;
@@ -48,7 +44,6 @@ public:
         current->next = newNode;
     }
 
-    // Returns true if the value was found and deleted
     bool deleteValue(int value) {
         if (head == nullptr) return false;
 
@@ -82,15 +77,15 @@ public:
 
     void display() const {
         if (head == nullptr) {
-            std::cout << "List is empty" << std::endl;
+            cout << "List is empty" << endl;
             return;
         }
         Node* current = head;
         while (current != nullptr) {
-            std::cout << current->data << " -> ";
+            cout << current->data << " -> ";
             current = current->next;
         }
-        std::cout << "NULL" << std::endl;
+        cout << "NULL" << endl;
     }
 };
 
