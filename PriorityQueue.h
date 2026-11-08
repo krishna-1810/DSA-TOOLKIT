@@ -2,7 +2,7 @@
 #define PRIORITYQUEUE_H
 
 #include <iostream>
-
+using namespcace std;
 class PriorityQueue {
 private:
     int* arr;
