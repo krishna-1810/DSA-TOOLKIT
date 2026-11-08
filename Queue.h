@@ -2,7 +2,7 @@
 #define QUEUE_H
 
 #include <iostream>
-
+using namespace std;
 struct QueueNode {
     int data;
     QueueNode* next;
@@ -32,7 +32,6 @@ public:
         return frontNode == nullptr;
     }
 
-    // Piche se add karo
     void enqueue(int value) {
         QueueNode* newNode = new QueueNode(value);
         if (rearNode == nullptr) {
@@ -43,7 +42,6 @@ public:
         rearNode = newNode;
     }
 
-    // Aage se nikalo
     bool dequeue(int& value) {
         if (isEmpty()) return false;
         QueueNode* temp = frontNode;
@@ -54,7 +52,6 @@ public:
         return true;
     }
 
-    // Sabse aage wala element dekhna (hatana nahi)
     bool front(int& value) const {
         if (isEmpty()) return false;
         value = frontNode->data;
@@ -63,16 +60,16 @@ public:
 
     void display() const {
         if (isEmpty()) {
-            std::cout << "Queue is empty" << std::endl;
+            cout << "Queue is empty" << endl;
             return;
         }
-        std::cout << "Front -> ";
+        cout << "Front -> ";
         QueueNode* current = frontNode;
         while (current != nullptr) {
-            std::cout << current->data << " ";
+            cout << current->data << " ";
             current = current->next;
         }
-        std::cout << "<- Rear" << std::endl;
+        cout << "<- Rear" <<endl;
     }
 };
 
