@@ -2,7 +2,7 @@
 #define STACK_H
 
 #include <iostream>
-
+using namespace std;
 struct StackNode {
     int data;
     StackNode* next;
@@ -37,7 +37,6 @@ public:
         top = newNode;
     }
 
-    // Pop safal hua to true, value "value" mein aa jaati hai
     bool pop(int& value) {
         if (isEmpty()) return false;
         StackNode* temp = top;
@@ -46,8 +45,6 @@ public:
         delete temp;
         return true;
     }
-
-    // Top element dekhna (hatana nahi)
     bool peek(int& value) const {
         if (isEmpty()) return false;
         value = top->data;
@@ -56,16 +53,16 @@ public:
 
     void display() const {
         if (isEmpty()) {
-            std::cout << "Stack is empty" << std::endl;
+           cout << "Stack is empty" << endl;
             return;
         }
-        std::cout << "Top -> ";
+        cout << "Top -> ";
         StackNode* current = top;
         while (current != nullptr) {
             std::cout << current->data << " ";
             current = current->next;
         }
-        std::cout << std::endl;
+       cout << endl;
     }
 };
 
