@@ -2,15 +2,13 @@
 #define SORTING_H
 
 #include <iostream>
-
+using namespace std;
 inline void printArray(const int arr[], int n) {
     for (int i = 0; i < n; i++) {
         std::cout << arr[i] << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
-
-// ---------- Bubble Sort ----------
 inline void bubbleSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         bool swapped = false;
@@ -22,11 +20,10 @@ inline void bubbleSort(int arr[], int n) {
                 swapped = true;
             }
         }
-        if (!swapped) break;    // Pehle se sorted hai to jaldi ruk jao
+        if (!swapped) break;   
     }
 }
 
-// ---------- Selection Sort ----------
 inline void selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -39,7 +36,6 @@ inline void selectionSort(int arr[], int n) {
     }
 }
 
-// ---------- Merge Sort ----------
 inline void mergeHalves(int arr[], int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -70,7 +66,6 @@ inline void mergeSort(int arr[], int left, int right) {
     mergeHalves(arr, left, mid, right);
 }
 
-// ---------- Quick Sort ----------
 inline int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
