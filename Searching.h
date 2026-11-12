@@ -1,8 +1,6 @@
 #ifndef SEARCHING_H
 #define SEARCHING_H
-
-// Linear Search: shuru se end tak ek-ek check karta hai.
-// Mila to index return karta hai, nahi mila to -1.
+using namespace std;
 inline int linearSearch(const int arr[], int n, int target) {
     for (int i = 0; i < n; i++) {
         if (arr[i] == target) return i;
@@ -10,8 +8,6 @@ inline int linearSearch(const int arr[], int n, int target) {
     return -1;
 }
 
-// Binary Search: array SORTED hona zaroori hai.
-// Har baar beech wala element dekhta hai aur aadha hissa chhod deta hai.
 inline int binarySearch(const int arr[], int n, int target) {
     int low = 0, high = n - 1;
     while (low <= high) {
